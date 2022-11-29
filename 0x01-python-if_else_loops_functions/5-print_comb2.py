@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 
-for x in range(10):
-    for y in range(10):
-        if y != 9 or x !=9 :
-            print("{}{}".format(x, y), end=", ")
+for x in range(100):
+        if x != 99:
+            print("{}".format(x), end=", ")
         else:
-            print("{}{}".format(x, y), end="\n")
+            print("{}".format(x), end="\n")
