@@ -1,5 +1,3 @@
 #!/usr/bin/python3
-
 def add(a, b):
-    ans = a + b
-    print("{} + {} = {}".format(a, b, ans))
+    print("{} + {} = {}".format(a, b, (a + b)))
