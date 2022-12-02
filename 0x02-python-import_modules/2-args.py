@@ -9,10 +9,10 @@ if __name__ == "__main__":
     if lent == 1:
         print("{} arguments.".format(lent - 1))
 
-    if lent == 2:
+    elif lent == 2:
         print("{} argument:".format(lent - 1))
 
-    if lent > 2:
+    else:
         print("{} arguments:".format(lent - 1))
         for x in range(1, lent):
             print("{}: {}".format(x, my_list[x]))
