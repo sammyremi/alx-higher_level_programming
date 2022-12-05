@@ -2,7 +2,7 @@
 
 def multiple_returns(sentence):
     lent = len(sentence)
-    
+
     if lent == 0:
         ch = (None)
     else:
