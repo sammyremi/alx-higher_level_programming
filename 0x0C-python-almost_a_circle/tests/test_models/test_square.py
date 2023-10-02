@@ -1,23 +1,40 @@
-#!/usr/bin/python3
-"""Unittests for base
-"""
-
+""" Test Module for square.py """
 import unittest
-from models.square import Square
+
+Square = __import__("models.square").square.Square
 
 
-class TestSquare(unittest.TestCase):
-    """Define unit test for Square model"""
+class TestRectangle(unittest.TestCase):
+    """ Test class for base.py """
 
-    def test_initialization_success(self):
-        s1 = Square(5)
-        s2 = Square(10)
-        self.assertEqual(s1.id, 5)
-        self.assertEqual(s2.id, 6)
+    def test_id(self):
+        self.assertEqual(Square(4, id=1).id, 1)
 
-    def test_initialization_without_arguments(self):
+    def test_raiseError(self):
+        rect = Square(10, 12, id=1)
+        with self.assertRaises(TypeError):
+            rect.width = "Lol"
+        with self.assertRaises(TypeError):
+            rect.height = [1, 2, 3, 4, 5]
+        with self.assertRaises(TypeError):
+            rect.x = {1, 2, 3, 4}
+        with self.assertRaises(TypeError):
+            rect.y = complex(10, 2.4)
+        with self.assertRaises(ValueError):
+            rect.width = -10
+        with self.assertRaises(ValueError):
+            rect.height = -19
+        with self.assertRaises(ValueError):
+            rect.x = -4
+        with self.assertRaises(ValueError):
+            rect.y = -4
 
-        self.assertRaises(TypeError, Square)
+    def test_area(self):
+        rect = Square(3)
+        self.assertEqual(rect.area(), 9)
+        with self.assertRaises(TypeError):
+            rect.area(1)
 
-if __name__ == '__main__':
-    unittest.main()
+    def test_str(self):
+        rect = Square(4, 2, 1, 12)
+        self.assertEqual(str(rect), "[Square] (12) 2/1 - 4")
