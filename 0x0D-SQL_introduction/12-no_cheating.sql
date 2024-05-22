@@ -1,4 +1,5 @@
--- Update score of Bob to 10 from 'second_table' of db 'hbtn_0c_0'
--- Not allowed to use Bob's id value, only name field
--- db name will be passed as arg to mysql cmd
-UPDATE second_table SET score = 10 WHERE name = "Bob";
+-- updates the score of Bob to 10.
+-- You are not allowed to use Bob’s id value, only the name field
+-- The database name will be passed as an argument of the mysql command
+
+UPDATE second_table SET score=10 WHERE name="Bob";
